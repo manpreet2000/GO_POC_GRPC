@@ -1,0 +1,16 @@
+syntax = "proto3";
+option go_package = "github.com/manpreet/grpc/transaction";
+package transaction;
+
+message TransactionRequest {
+    int32 TransactionId = 1;
+    string TransactionHash = 2;
+}
+
+message TransactionResponse {
+    bool isValid = 1;
+}
+
+service transactionService {
+    rpc SendTransaction(TransactionRequest) returns (TransactionResponse) {}
+}
